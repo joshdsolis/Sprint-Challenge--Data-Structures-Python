@@ -1,4 +1,5 @@
 import time
+from binary_search_tree import BinarySearchTree
 
 start_time = time.time()
 
@@ -20,3 +21,17 @@ end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
 
+start_time2 = time.time()
+
+bst = BinarySearchTree(names_1[0])
+for name_1 in names_1[1:]:
+    bst.insert(name_1)
+dupes = []
+for name_2 in names_2:
+    if bst.contains(name_2):
+        dupes.append(name_2)
+
+end_time2 = time.time()
+
+print (f"{len(dupes)} duplicates:\n\n{', '.join(dupes)}\n\n")
+print (f"runtime 2: {end_time2 - start_time2} seconds")
